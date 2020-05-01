@@ -1,3 +1,4 @@
+//queue using array
 #include<iostream>
 using namespace std;
 template<class T>
