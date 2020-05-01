@@ -1,9 +1,3 @@
-rder traversal is -> ";
-    // bst->preOrder(bst->root);
-    // cout<<endl;
-    // cout<<"PostOrder traversal is -> ";
-    // bst->postOrder(bst->root);
-    // cout<<endl;
-    // cout<<"InOrder traversal is -> ";
-    // bst->inOrder(bst->root);
-    // cout<<endl;
+,8,6,25,3,6,89,12,0,7};
+    // tree->insert(array);
+    // tree->display();
