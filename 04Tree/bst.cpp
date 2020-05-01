@@ -114,9 +114,13 @@ class BST{
                 
             }else if(ptr->left == NULL || ptr->right == NULL){
                 if(ptr->left != NULL){
-                    ptr = ptr->left;
+                    Node<T> *temp = ptr->left;
+                    ptr->left = NULL;
+                    ptr = temp;
                 }else{
-                    ptr = ptr->right;
+                    Node<T> *temp = ptr->right;
+                    ptr->right = NULL;
+                    ptr = temp;
                 }
             }else{
                 Node<T> *greatestNode = findGreatest(ptr->left);
@@ -126,9 +130,13 @@ class BST{
                 ptr = NULL;
             }else if(ptr->left == NULL || ptr->right == NULL){
                 if(ptr->left != NULL){
-                    ptr = ptr->left;
+                    Node<T> *temp = ptr->left;
+                    ptr->left = NULL;
+                    ptr = temp;
                 }else{
-                    ptr = ptr->right;
+                    Node<T> *temp = ptr->right;
+                    ptr->right = NULL;
+                    ptr = temp;
                 }
             }
             }
@@ -145,15 +153,15 @@ int main(){
     bst->addNode(10);
     bst->addNode(2);
     bst->addNode(7);
-    cout<<"Preorder traversal is -> ";
-    bst->preOrder(bst->root);
-    cout<<endl;
-    cout<<"PostOrder traversal is -> ";
-    bst->postOrder(bst->root);
-    cout<<endl;
-    cout<<"InOrder traversal is -> ";
-    bst->inOrder(bst->root);
-    cout<<endl;
+    // cout<<"Preorder traversal is -> ";
+    // bst->preOrder(bst->root);
+    // cout<<endl;
+    // cout<<"PostOrder traversal is -> ";
+    // bst->postOrder(bst->root);
+    // cout<<endl;
+    // cout<<"InOrder traversal is -> ";
+    // bst->inOrder(bst->root);
+    // cout<<endl;
     bst->levelOrderTraversal(bst->root);
     cout<<endl;
     bst->deleteNode(bst->root,10);
