@@ -15,26 +15,38 @@ class Graph{
         }
 
         void DFS(string source){
-            cout<<"DFS from "<<source<<" is :- ";
+            cout<<"DFS from "<<source<<"is :- ";
             stack<string>s;
             set<string>visited;
-
             s.push(source);
-            visited.insert(source);
-
             while(!s.empty()){
                 string currentItem = s.top();
                 s.pop();
-                cout<<currentItem<<", ";
-                for(string value : graph[currentItem]){
-                    bool isVisited = visited.find(value) == visited.end();
-                    if(isVisited){
+                bool isVisited = visited.find(currentItem) == visited.end();
+                if(isVisited){
+                    cout<<currentItem<<", ";
+                    visited.insert(currentItem);
+                    for(string value : graph[currentItem]){
                         s.push(value);
-                        visited.insert(value);
                     }
+                }
+
+            }
+        }
+        
+        void dfsUtil(string source,set<string> visited){
+            if(visited.find(source) == visited.end()){
+            
+            visited.insert(source);        
+            cout<<source<<", ";
+                }
+            for(string value:graph[source]){
+                if(visited.find(value) == visited.end()){
+                    dfsUtil(value,visited);
                 }
             }
         }
+        
 
         
 };
@@ -60,6 +72,6 @@ int main(){
     g->addEdge("jaipur","mumbai");
     g->addEdge("jaipur","bhopal");
     g->addEdge("delhi","bhopal");
-    g->DFS("delhi");
+    g->DFS("sikkim");
     return 0;
 }
