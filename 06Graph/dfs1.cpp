@@ -7,12 +7,7 @@ using namespace std;
 class Graph{
     private:
         map<string,list<string>> graph;
-    public:
-        void addEdge(string source,string destination){
-            graph[source].push_back(destination);
-            graph[destination].push_back(source);
-        }
-
+    private:
         void dfsUtil(string vertex,set<string>& visited){
             cout<<vertex<<", ";
             visited.insert(vertex);
@@ -22,6 +17,11 @@ class Graph{
                     dfsUtil(children,visited);
                 }
             }
+        }
+    public:
+        void addEdge(string source,string destination){
+            graph[source].push_back(destination);
+            graph[destination].push_back(source);
         }
 
         void DFS(string source){
@@ -54,5 +54,6 @@ int main(){
     g->addEdge("jaipur","bhopal");
     g->addEdge("delhi","bhopal");
     g->DFS("sikkim");
+
     return 0;
 }
