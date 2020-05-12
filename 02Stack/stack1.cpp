@@ -2,6 +2,7 @@
 #include<iostream>
 using namespace std;
 #define STACK_SIZE 10
+
 template<class T>
 class Stack{
     private:
