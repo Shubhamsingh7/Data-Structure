@@ -1,3 +1,4 @@
+//bubble sort time best O(n) worst (n^2) | space O(1)
 #include<iostream>
 using namespace std;
 
