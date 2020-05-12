@@ -2,4 +2,5 @@
 *.exe
 *.out
 *.app
+#runner file
 *tempCodeRunnerFile.cpp
