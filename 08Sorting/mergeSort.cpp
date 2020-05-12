@@ -1,3 +1,4 @@
+//merge sort
 #include<iostream>
 using namespace std;
 
@@ -37,7 +38,7 @@ void merge(int arr[],int left,int right){
     }
     delete temp;
 }
-
+// time O(nlogn) | space O(n)
 void merge_sort(int arr[],int left,int right){
     if(left >= right){             // check if array can't be further divided
         return;
