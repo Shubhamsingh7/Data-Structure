@@ -1,4 +1,4 @@
-// using heapyfy
+//min heap using heapyfy 
 #include<iostream>
 using namespace std;
 
