@@ -1,4 +1,5 @@
-//using set
+//using map
+
 #include<iostream>
 #include<map>
 #include<list>
