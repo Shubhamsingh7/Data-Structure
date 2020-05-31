@@ -1,48 +1,68 @@
 #include<iostream>
 #include<map>
-#include<set>
 using namespace std;
 
 class TrieNode{
     public:
-        char data;
         bool isTerminating;
-        map<char,set<TrieNode>> list;
-    public:
+        map<char,TrieNode*>child;
         TrieNode(){
-
+            isTerminating = false;
         }
-        TrieNode(char data){
-            this->data = data;
-            isTerminating = true;
-            set<TrieNode> s;
-            list[data] = s;
-        }
-
 };
+
 class Trie{
     private:
-        TrieNode root;
+        TrieNode *root;
     public:
         Trie(){
-            root.data = ' ';
-            root.isTerminating = false;
-            set<TrieNode>s;
-            root.list[' '] = s;
+            root = new TrieNode();
         }
-        void addchar(char data){
-            TrieNode node(data);
-            bool isFirstChar = root.list[' '].find(data) == root.list[' '].end();
-            if(isFirstChar){
-                root.list[' '].insert(node);
-                return;
+
+        void insert(string str){
+            TrieNode *ptr = root;
+            for(char ch:str){
+                if(!ptr->child.count(ch)){
+                    ptr->child[ch] = new TrieNode();
+                }
+                ptr = ptr->child[ch];
             }
-            TrieNode ptr = root;
-            while(ptr.isTerminating != true){
-                
+            ptr->isTerminating = true;
+        }
+
+        bool search(string str){
+            TrieNode *ptr = root;
+            for(char ch:str){
+                if(!ptr->child.count(ch)){
+                    return false;
+                }
+                ptr = ptr->child[ch];
             }
+            return ptr->isTerminating;
         }
 };
-int main(){
 
+
+
+int main(){
+    Trie *t = new Trie();
+    int n,i;
+    cin>>n;
+    while(n--){
+        string s;
+        cin>>s;
+        t->insert(s);
+    }
+    cin>>i;
+    while(i--){
+        string s;
+        cin>>s;
+        if(t->search(s)){
+            cout<<"string "<<s<<" is present"<<endl;
+        }else{
+            cout<<"string "<<s<<" is not present"<<endl;
+
+        }
+    }
+    return 0;
 }
