@@ -40,6 +40,20 @@ class Trie{
             }
             return ptr->isTerminating;
         }
+
+        bool isPrefix(string str){
+            TrieNode *ptr = root;
+            for(char ch:str){
+                if(!ptr->child.count(ch)){
+                    return false;
+                }
+                ptr = ptr->child[ch];
+            }
+            if(ptr != NULL){
+                return true;
+            }
+            return false;
+        }
 };
 
 
@@ -60,7 +74,11 @@ int main(){
         if(t->search(s)){
             cout<<"string "<<s<<" is present"<<endl;
         }else{
+            if(t->isPrefix(s)){
+            cout<<"string "<<s<<" is Prefix"<<endl;
+            }else{
             cout<<"string "<<s<<" is not present"<<endl;
+            }
 
         }
     }
